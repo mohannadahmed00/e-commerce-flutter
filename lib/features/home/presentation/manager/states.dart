@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/home/domain/entities/ProductEntity.dart';
+import 'package:e_commerce_app/features/home/domain/entities/SubCategoryEntity.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../domain/entities/CategoryEntity.dart';
@@ -20,6 +21,24 @@ class HomeGetCategoriesErrorState extends HomeStates {
 }
 
 class HomeGetCategoriesLoadingState extends HomeStates {}
+
+
+class HomeGetSubCategorySuccessState extends HomeStates {
+  SubCategoryEntity model;
+
+  HomeGetSubCategorySuccessState(this.model);
+}
+
+class HomeGetSubCategoryErrorState extends HomeStates {
+  Failures failures;
+
+  HomeGetSubCategoryErrorState(this.failures);
+}
+
+class HomeGetSubCategoryLoadingState extends HomeStates {}
+
+
+
 
 class HomeGetBrandsSuccessState extends HomeStates {
   CategoryOrBrandEntity model;
@@ -48,3 +67,7 @@ class HomeGetProductsErrorState extends HomeStates {
 }
 
 class HomeGetProductsLoadingState extends HomeStates {}
+
+class HomeChangeTabState extends HomeStates {}
+
+class HomeChangeCategoryState extends HomeStates {}

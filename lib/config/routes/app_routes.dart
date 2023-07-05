@@ -1,18 +1,17 @@
 
 import 'package:e_commerce_app/features/home/presentation/pages/home.dart';
 import 'package:e_commerce_app/features/login/data/data_sources/data_sources.dart';
-import 'package:e_commerce_app/features/login/domain/entities/login_entity.dart';
 import 'package:e_commerce_app/features/login/presentation/manager/cubit.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login.dart';
+import 'package:e_commerce_app/features/sign_up/presentation/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/sign_up/presentation/pages/sign_up.dart';
 
 class Routes {
-  static const String login = "/";
+  static const String login = "login";
   static const String signUp = "signUp";
-  static const String home = "home";
+  static const String home = "/";
 }
 
 class AppRoutes {
@@ -30,9 +29,9 @@ class AppRoutes {
         );
       case Routes.home:
         // Map<String,dynamic> args=routeSettings.arguments as Map<String,dynamic>;
-        LoginEntity loginEntity = routeSettings.arguments as LoginEntity;
+        //LoginEntity loginEntity = routeSettings.arguments as LoginEntity;
         return MaterialPageRoute(
-          builder: (context) => HomeScreen(loginEntity),
+          builder: (context) => const HomeScreen(null),
         );
 
       default:

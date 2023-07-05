@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
       } else if (state is LoginLoadingState) {
         showDialog(
           context: context,
-          builder: (context) => AlertDialog(
+          builder: (context) => const AlertDialog(
             elevation: 0,
             backgroundColor: Colors.transparent,
             title: Center(
@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text("Error"),
+            title: const Text("Error"),
             content: Text(state.failures.message),
           ),
         );
@@ -121,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: 56.h,
                   ),
-                  Container(
+                  SizedBox(
                     height: 64.h,
                     child: ElevatedButton(
                       onPressed: () {

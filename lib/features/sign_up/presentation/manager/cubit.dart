@@ -22,7 +22,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
   void signUp() async {
     emit(SignUpLoadingState());
     SignUpData data =
-        SignUpData("Habiba", "01112525254", "habiba@gmail.com", "123@habiba");
+        const SignUpData("Habiba", "01112525254", "habiba@gmail.com", "123@habiba");
     SignUpDomainRepo signUpDomainRepo = SignUpDataRepo(sources);
     SignUpUseCase signUpUseCase = SignUpUseCase(signUpDomainRepo);
     var result = await signUpUseCase.call(data);

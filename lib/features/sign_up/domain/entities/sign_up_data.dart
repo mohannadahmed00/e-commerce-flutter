@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
 class SignUpData extends Equatable {
-  String name;
-  String phone;
-  String email;
-  String password;
+  final String name;
+  final String phone;
+  final String email;
+  final String password;
 
-  SignUpData(this.name, this.phone, this.email, this.password);
+  const SignUpData(this.name, this.phone, this.email, this.password);
 
   @override
   // TODO: implement props

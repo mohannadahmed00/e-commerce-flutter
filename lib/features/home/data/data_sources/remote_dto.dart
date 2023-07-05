@@ -3,10 +3,12 @@ import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/api/end_points.dart';
 import 'package:e_commerce_app/core/error/failures.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
+import 'package:e_commerce_app/features/home/data/data_sources/home_data_sources.dart';
 import 'package:e_commerce_app/features/home/data/models/CategoryModel.dart';
 import 'package:e_commerce_app/features/home/data/models/ProductModel.dart';
+import 'package:e_commerce_app/features/home/data/models/SubCategoryModel.dart';
 
-import 'home_data_sources.dart';
+
 
 class RemoteDto implements HomeDataSources {
   Dio dio = Dio();
@@ -38,12 +40,27 @@ class RemoteDto implements HomeDataSources {
   }
 
   @override
-  Future<Either<Failures, ProductModel>> getProducts() async{
+  Future<Either<Failures, ProductModel>> getProducts() async {
     try {
       var response = await dio.get(
         "${Constants.baseUrlApi}${EndPoints.getProducts}",
       );
       ProductModel model = ProductModel.fromJson(response.data);
+      return Right(model);
+    } catch (e) {
+      return Left(ServerFailures(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failures, SubCategoryModel>> getSubCategory(
+      String categoryId) async {
+    try {
+      var response = await dio.get(
+        "${Constants.baseUrlApi}${EndPoints.getSubCategory.replaceAll(
+            '{categoryId}', categoryId)}",
+      );
+      SubCategoryModel model = SubCategoryModel.fromJson(response.data);
       return Right(model);
     } catch (e) {
       return Left(ServerFailures(e.toString()));

@@ -3,6 +3,7 @@ import 'package:e_commerce_app/core/error/failures.dart';
 import 'package:e_commerce_app/features/home/data/data_sources/home_data_sources.dart';
 import 'package:e_commerce_app/features/home/data/models/CategoryModel.dart';
 import 'package:e_commerce_app/features/home/data/models/ProductModel.dart';
+import 'package:e_commerce_app/features/home/data/models/SubCategoryModel.dart';
 
 
 class LocalDto implements HomeDataSources {
@@ -21,6 +22,12 @@ class LocalDto implements HomeDataSources {
   @override
   Future<Either<Failures, ProductModel>> getProducts() {
     // TODO: implement getProducts
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failures, SubCategoryModel>> getSubCategory(String categoryId) {
+    // TODO: implement getSubCategory
     throw UnimplementedError();
   }
 }

@@ -27,8 +27,18 @@ class ProductDataEntity {
   num? priceAfterDiscount;
   String? imageCover;
   num? ratingsAverage;
+  List<ProductSubcategoryEntity>? subcategory;
 
 
+}
+
+class ProductSubcategoryEntity {
+  String? sId;
+  String? name;
+  String? slug;
+  String? category;
+
+  ProductSubcategoryEntity({this.sId, this.name, this.slug, this.category});
 }
 
 class MetadataEntity {

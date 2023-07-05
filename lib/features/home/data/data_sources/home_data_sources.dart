@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/core/error/failures.dart';
 import 'package:e_commerce_app/features/home/data/models/ProductModel.dart';
-
+import 'package:e_commerce_app/features/home/data/models/SubCategoryModel.dart';
 import '../models/CategoryModel.dart';
 
 abstract class HomeDataSources {
@@ -10,4 +10,6 @@ abstract class HomeDataSources {
   Future<Either<Failures, CategoryOrBrandModel>> getBrands();
 
   Future<Either<Failures, ProductModel>> getProducts();
+
+  Future<Either<Failures, SubCategoryModel>> getSubCategory(String categoryId);
 }
